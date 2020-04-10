@@ -1,0 +1,47 @@
+<div class="component-container">
+    <div class="main-container">
+
+
+        <div class="content-container" >
+        {{roles}}
+
+            <table>
+                <tr>
+                  <th>Ime</th>
+                  <th>Prezime</th>
+                  <th>Email</th>
+                  <th>Datum Rodjenja</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+                
+                <tr *ngFor='let s of students'>
+                  <td>{{s.korisnik.ime}}</td>
+                  <td>{{s.korisnik.prezime}}</td>
+                  <td>{{s.korisnik.email}}</td>
+                  <td>{{s.korisnik.datumRodjenja | date}}</td>
+                  <td><button class="edit-button" (click)="editEntry(s)" >Edit</button></td>
+                  <td><button class="delete-button" (click)="deleteStudent(s.id)">X</button></td>
+                  
+                </tr>
+               
+              </table>
+        </div>
+
+
+        <div class="edit-container" *ngIf="edit">
+            <input placeholder="{{student.korisnik.ime}}" [(ngModel)]="student.korisnik.ime">
+            <input placeholder="{{student.korisnik.prezime}}" [(ngModel)]="student.korisnik.prezime">
+            <input placeholder="{{student.korisnik.email}}" [(ngModel)]="student.korisnik.email">
+            <button (click)="editStudent(student.id, student)">Sacuvaj</button>
+        </div>
+
+        <button *ngIf="loggedIn" class="logout-button" (click)="logOut()" >Log out</button>
+        <button *ngIf="administrator" class="logout-button" routerLink="/register" >Register Student</button>
+        <button *ngIf="administrator" class="logout-button"> <a href="http://localhost:8080/student/download/student.xlsx">Download excel</a></button>
+        <input type="file" id="myfile" #myFile name="myfile"><br><br>
+        <button (click)="upload(myFile.value)" class="logout-button"> Upload</button>
+
+
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="component-container">
+    <div class="main-container">
+        <div class="content-container" >
+            <h1>Registracija</h1>
+            <input type="text" #ime placeholder="Ime.." >
+            <input type="text" #prezime placeholder="Prezime..">
+            <input type="text" #email placeholder="E-mail..">
+            <input type="password" #lozinka placeholder="Lozinka..">
+            <input type="date" #datum >
+            <button (click)="register(ime.value, prezime.value, email.value, lozinka.value, datum.value)">Register</button>
+        </div>
+    </div>
+</div>

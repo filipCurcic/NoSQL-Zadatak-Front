@@ -1,0 +1,8 @@
+<div class="component-container">
+    <div class="main-container">
+        <h1>Login</h1>
+        <input placeholder="Email" [(ngModel)] = "korisnik.email">
+        <input placeholder="Password" [(ngModel)] = "korisnik.lozinka">
+        <button (click)="login()" routerLink="/display">Login</button>
+    </div>
+</div>
